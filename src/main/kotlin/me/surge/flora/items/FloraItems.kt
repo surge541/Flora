@@ -29,6 +29,7 @@ object FloraItems {
                 entries.add(FloraBlocks.MOONSHADE_LILY)
                 entries.add(FloraBlocks.SNOWDROP)
                 entries.add(FloraBlocks.FORGET_ME_NOT)
+                entries.add(FloraBlocks.TIDEPETAL)
             }
             .build()
 

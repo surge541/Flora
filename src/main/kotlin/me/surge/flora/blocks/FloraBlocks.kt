@@ -21,6 +21,7 @@ object FloraBlocks {
     lateinit var MOONSHADE_LILY: Block
     lateinit var SNOWDROP: Block
     lateinit var FORGET_ME_NOT: Block
+    lateinit var TIDEPETAL: Block
 
     val flowers = mutableListOf<Block>()
 
@@ -46,7 +47,7 @@ object FloraBlocks {
             .offset(OffsetType.XZ)
             .pistonBehavior(PistonBehavior.DESTROY)
             .emissiveLighting { _, _, _ -> true }
-            .luminance { 6 }
+            .luminance { 4 }
         )
 
         SNOWDROP = register("snowdrop", { settings ->
@@ -66,6 +67,17 @@ object FloraBlocks {
             FlowerBlock(StatusEffects.GLOWING, 30.0F, settings)
         }, Settings.create()
             .mapColor(MapColor.LIGHT_BLUE_GRAY)
+            .noCollision()
+            .breakInstantly()
+            .sounds(BlockSoundGroup.GRASS)
+            .offset(OffsetType.XZ)
+            .pistonBehavior(PistonBehavior.DESTROY)
+        )
+
+        TIDEPETAL = register("tidepetal", { settings ->
+            Tidepetal(settings)
+        }, Settings.create()
+            .mapColor(MapColor.BLUE)
             .noCollision()
             .breakInstantly()
             .sounds(BlockSoundGroup.GRASS)

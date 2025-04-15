@@ -31,6 +31,9 @@ object FloraWorldGen {
     val FOREST_FMN_PATCH: RegistryKey<PlacedFeature?>? =
         RegistryKey.of<PlacedFeature?>(RegistryKeys.PLACED_FEATURE, Identifier.of(Bootstrap.MOD_ID, "forest_fmn_patch"))
 
+    val TIDEPETAL: RegistryKey<PlacedFeature?>? =
+        RegistryKey.of<PlacedFeature?>(RegistryKeys.PLACED_FEATURE, Identifier.of(Bootstrap.MOD_ID, "tidepetal"))
+
     fun init() {
         BiomeModifications.addFeature(
             BiomeSelectors.includeByKey(BiomeKeys.FLOWER_FOREST),
@@ -75,6 +78,17 @@ object FloraWorldGen {
             BiomeSelectors.includeByKey(BiomeKeys.FOREST),
             GenerationStep.Feature.VEGETAL_DECORATION,
             FOREST_FMN_PATCH
+        )
+
+        BiomeModifications.addFeature(
+            BiomeSelectors.includeByKey(
+                BiomeKeys.LUKEWARM_OCEAN,
+                BiomeKeys.WARM_OCEAN,
+                BiomeKeys.OCEAN,
+                BiomeKeys.DEEP_OCEAN
+            ),
+            GenerationStep.Feature.VEGETAL_DECORATION,
+            TIDEPETAL
         )
     }
 
