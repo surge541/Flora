@@ -1,4 +1,4 @@
-package me.surge.bloom.blocks
+package me.surge.flora.blocks
 
 import net.minecraft.block.BlockState
 import net.minecraft.block.Blocks

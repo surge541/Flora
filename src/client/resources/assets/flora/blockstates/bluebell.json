@@ -1,7 +1,7 @@
 {
     "variants": {
         "": {
-            "model": "bloom:block/bluebell"
+            "model": "flora:block/bluebell"
         }
     }
 }

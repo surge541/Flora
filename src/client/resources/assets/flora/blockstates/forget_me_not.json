@@ -1,7 +1,7 @@
 {
     "variants": {
         "": {
-            "model": "bloom:block/forget_me_not"
+            "model": "flora:block/forget_me_not"
         }
     }
 }

@@ -1,6 +1,6 @@
 {
     "model": {
         "type": "minecraft:model",
-        "model": "bloom:item/bluebell"
+        "model": "flora:item/bluebell"
     }
 }

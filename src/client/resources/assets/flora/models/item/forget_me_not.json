@@ -1,6 +1,6 @@
 {
     "parent": "minecraft:item/generated",
     "textures": {
-        "layer0": "bloom:block/forget_me_not"
+        "layer0": "flora:block/forget_me_not"
     }
 }

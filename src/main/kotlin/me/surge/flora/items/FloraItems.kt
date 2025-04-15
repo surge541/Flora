@@ -1,7 +1,7 @@
-package me.surge.bloom.items
+package me.surge.flora.items
 
-import me.surge.bloom.Bootstrap
-import me.surge.bloom.blocks.BloomBlocks
+import me.surge.flora.Bootstrap
+import me.surge.flora.blocks.FloraBlocks
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup
 import net.minecraft.item.ItemGroup
 import net.minecraft.item.ItemStack
@@ -13,26 +13,26 @@ import net.minecraft.text.Text
 import net.minecraft.util.Identifier
 
 
-object BloomItems {
+object FloraItems {
 
-    val BLOOM_GROUP_KEY: RegistryKey<ItemGroup?>? =
-        RegistryKey.of<ItemGroup?>(RegistryKeys.ITEM_GROUP, Identifier.of(Bootstrap.MOD_ID, "bloom_group"))
+    val FLORA_GROUP_KEY: RegistryKey<ItemGroup?>? =
+        RegistryKey.of<ItemGroup?>(RegistryKeys.ITEM_GROUP, Identifier.of(Bootstrap.MOD_ID, "flora_group"))
 
     lateinit var GROUP: ItemGroup
 
     fun init() {
         GROUP = FabricItemGroup.builder()
-            .icon { ItemStack(BloomBlocks.BLUEBELL) }
-            .displayName(Text.translatable("itemGroup.bloom"))
+            .icon { ItemStack(FloraBlocks.BLUEBELL) }
+            .displayName(Text.translatable("itemGroup.flora"))
             .entries { context, entries ->
-                entries.add(BloomBlocks.BLUEBELL)
-                entries.add(BloomBlocks.MOONSHADE_LILY)
-                entries.add(BloomBlocks.SNOWDROP)
-                entries.add(BloomBlocks.FORGET_ME_NOT)
+                entries.add(FloraBlocks.BLUEBELL)
+                entries.add(FloraBlocks.MOONSHADE_LILY)
+                entries.add(FloraBlocks.SNOWDROP)
+                entries.add(FloraBlocks.FORGET_ME_NOT)
             }
             .build()
 
-        Registry.register(Registries.ITEM_GROUP, BLOOM_GROUP_KEY, GROUP)
+        Registry.register(Registries.ITEM_GROUP, FLORA_GROUP_KEY, GROUP)
     }
 
 }

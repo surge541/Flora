@@ -1,6 +1,6 @@
-package me.surge.bloom.blocks
+package me.surge.flora.blocks
 
-import me.surge.bloom.Bootstrap
+import me.surge.flora.Bootstrap
 import net.minecraft.block.AbstractBlock.OffsetType
 import net.minecraft.block.AbstractBlock.Settings
 import net.minecraft.block.Block
@@ -15,7 +15,7 @@ import net.minecraft.registry.RegistryKeys
 import net.minecraft.sound.BlockSoundGroup
 import net.minecraft.util.Identifier
 
-object BloomBlocks {
+object FloraBlocks {
 
     lateinit var BLUEBELL: Block
     lateinit var MOONSHADE_LILY: Block

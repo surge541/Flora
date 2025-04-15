@@ -1,7 +1,7 @@
 {
     "variants": {
         "": {
-            "model": "bloom:block/snowdrop"
+            "model": "flora:block/snowdrop"
         }
     }
 }

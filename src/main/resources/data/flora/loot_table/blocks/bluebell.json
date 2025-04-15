@@ -11,11 +11,11 @@
             "entries": [
                 {
                     "type": "minecraft:item",
-                    "name": "bloom:bluebell"
+                    "name": "flora:bluebell"
                 }
             ],
             "rolls": 1.0
         }
     ],
-    "random_sequence": "bloom:blocks/bluebell"
+    "random_sequence": "flora:blocks/bluebell"
 }

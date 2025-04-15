@@ -1,6 +1,6 @@
 {
     "parent": "minecraft:block/cross",
     "textures": {
-        "cross": "bloom:block/forget_me_not"
+        "cross": "flora:block/forget_me_not"
     }
 }

@@ -1,8 +1,8 @@
-package me.surge.bloom
+package me.surge.flora
 
-import me.surge.bloom.blocks.BloomBlocks
-import me.surge.bloom.items.BloomItems
-import me.surge.bloom.worldgen.BloomPlacedFeatures
+import me.surge.flora.blocks.FloraBlocks
+import me.surge.flora.items.FloraItems
+import me.surge.flora.worldgen.FloraWorldGen
 import net.fabricmc.api.ModInitializer
 import org.apache.logging.log4j.LogManager
 
@@ -11,15 +11,15 @@ class Bootstrap : ModInitializer {
     val logger = LogManager.getLogger(MOD_ID)
 
     override fun onInitialize() {
-        BloomBlocks.init()
-        BloomPlacedFeatures.init()
-        BloomItems.init()
+        FloraBlocks.init()
+        FloraWorldGen.init()
+        FloraItems.init()
 
-        logger.info("Bloom initialisation complete :)")
+        logger.info("Flora initialisation complete :)")
     }
 
     companion object {
-        const val MOD_ID = "bloom"
+        const val MOD_ID = "flora"
     }
 
 }

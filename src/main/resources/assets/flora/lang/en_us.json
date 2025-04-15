@@ -1,7 +1,7 @@
 {
-    "block.bloom.bluebell": "Bluebell",
-    "block.bloom.moonshade_lily": "Moonshade Lily",
-    "block.bloom.snowdrop": "Snowdrop",
-    "block.bloom.forget_me_not": "Forget-me-not",
-    "itemGroup.bloom": "Bloom"
+    "block.flora.bluebell": "Bluebell",
+    "block.flora.moonshade_lily": "Moonshade Lily",
+    "block.flora.snowdrop": "Snowdrop",
+    "block.flora.forget_me_not": "Forget-me-not",
+    "itemGroup.flora": "Flora"
 }

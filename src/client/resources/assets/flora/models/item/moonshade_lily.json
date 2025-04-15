@@ -1,6 +1,6 @@
 {
     "parent": "minecraft:item/generated",
     "textures": {
-        "layer0": "bloom:block/moonshade_lily"
+        "layer0": "flora:block/moonshade_lily"
     }
 }

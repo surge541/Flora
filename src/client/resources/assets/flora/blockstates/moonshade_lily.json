@@ -1,7 +1,7 @@
 {
     "variants": {
         "": {
-            "model": "bloom:block/moonshade_lily"
+            "model": "flora:block/moonshade_lily"
         }
     }
 }

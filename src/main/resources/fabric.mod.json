@@ -1,29 +1,29 @@
 {
     "schemaVersion": 1,
-    "id": "blossom",
+    "id": "flora",
     "version": "${version}",
-    "name": "Blossom",
-    "description": "",
-    "authors": [],
+    "name": "Flora",
+    "description": "Adds various flowers and plants to Minecraft in a fairly Vanilla-friendly style\n\nfor lissie :)",
+    "authors": ["surge"],
     "contact": {},
-    "license": "All-Rights-Reserved",
-    "icon": "assets/blossom/icon.png",
+    "license": "GPL-3.0",
+    "icon": "assets/flora/textures/block/moonshade_lily.png",
     "environment": "*",
     "entrypoints": {
         "fabric-datagen": [
-            "me.surge.blossom.client.BootstrapDataGenerator"
+            "me.surge.flora.client.BootstrapDataGenerator"
         ],
         "client": [
-            "me.surge.blossom.client.BootstrapClient"
+            "me.surge.flora.client.BootstrapClient"
         ],
         "main": [
-            "me.surge.blossom.Bootstrap"
+            "me.surge.flora.Bootstrap"
         ]
     },
     "mixins": [
-        "blossom.mixins.json",
+        "flora.mixins.json",
         {
-            "config": "blossom.client.mixins.json",
+            "config": "flora.client.mixins.json",
             "environment": "client"
         }
     ],

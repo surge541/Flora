@@ -1,6 +1,6 @@
-package me.surge.bloom.worldgen
+package me.surge.flora.worldgen
 
-import me.surge.bloom.Bootstrap
+import me.surge.flora.Bootstrap
 import net.fabricmc.fabric.api.biome.v1.BiomeModifications
 import net.fabricmc.fabric.api.biome.v1.BiomeSelectors
 import net.minecraft.registry.RegistryKey
@@ -11,13 +11,13 @@ import net.minecraft.world.gen.GenerationStep
 import net.minecraft.world.gen.feature.PlacedFeature
 
 
-object BloomPlacedFeatures {
+object FloraWorldGen {
 
-    val BLOOM_FLOWER_FOREST: RegistryKey<PlacedFeature?>? =
-        RegistryKey.of<PlacedFeature?>(RegistryKeys.PLACED_FEATURE, Identifier.of(Bootstrap.MOD_ID, "bloom_flower_forest"))
+    val FLORA_FLOWER_FOREST: RegistryKey<PlacedFeature?>? =
+        RegistryKey.of<PlacedFeature?>(RegistryKeys.PLACED_FEATURE, Identifier.of(Bootstrap.MOD_ID, "flora_flower_forest"))
 
-    val BLOOM_FLOWER_MEADOW: RegistryKey<PlacedFeature?>? =
-        RegistryKey.of<PlacedFeature?>(RegistryKeys.PLACED_FEATURE, Identifier.of(Bootstrap.MOD_ID, "bloom_flower_meadow"))
+    val FLORA_FLOWER_MEADOW: RegistryKey<PlacedFeature?>? =
+        RegistryKey.of<PlacedFeature?>(RegistryKeys.PLACED_FEATURE, Identifier.of(Bootstrap.MOD_ID, "flora_flower_meadow"))
 
     val DARK_OAK_BLUEBELL_PATCH: RegistryKey<PlacedFeature?>? =
         RegistryKey.of<PlacedFeature?>(RegistryKeys.PLACED_FEATURE, Identifier.of(Bootstrap.MOD_ID, "dark_oak_bluebell_patch"))
@@ -35,13 +35,13 @@ object BloomPlacedFeatures {
         BiomeModifications.addFeature(
             BiomeSelectors.includeByKey(BiomeKeys.FLOWER_FOREST),
             GenerationStep.Feature.VEGETAL_DECORATION,
-            BLOOM_FLOWER_FOREST
+            FLORA_FLOWER_FOREST
         )
 
         BiomeModifications.addFeature(
             BiomeSelectors.includeByKey(BiomeKeys.MEADOW),
             GenerationStep.Feature.VEGETAL_DECORATION,
-            BLOOM_FLOWER_MEADOW
+            FLORA_FLOWER_MEADOW
         )
 
         BiomeModifications.addFeature(

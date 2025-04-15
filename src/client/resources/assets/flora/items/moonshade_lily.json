@@ -1,6 +1,6 @@
 {
     "model": {
         "type": "minecraft:model",
-        "model": "bloom:item/moonshade_lily"
+        "model": "flora:item/moonshade_lily"
     }
 }
