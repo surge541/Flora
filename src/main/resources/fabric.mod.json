@@ -1,0 +1,36 @@
+{
+    "schemaVersion": 1,
+    "id": "blossom",
+    "version": "${version}",
+    "name": "Blossom",
+    "description": "",
+    "authors": [],
+    "contact": {},
+    "license": "All-Rights-Reserved",
+    "icon": "assets/blossom/icon.png",
+    "environment": "*",
+    "entrypoints": {
+        "fabric-datagen": [
+            "me.surge.blossom.client.BootstrapDataGenerator"
+        ],
+        "client": [
+            "me.surge.blossom.client.BootstrapClient"
+        ],
+        "main": [
+            "me.surge.blossom.Bootstrap"
+        ]
+    },
+    "mixins": [
+        "blossom.mixins.json",
+        {
+            "config": "blossom.client.mixins.json",
+            "environment": "client"
+        }
+    ],
+    "depends": {
+        "fabricloader": ">=${loader_version}",
+        "fabric-language-kotlin": ">=${kotlin_loader_version}",
+        "fabric": "*",
+        "minecraft": "${minecraft_version}"
+    }
+}
