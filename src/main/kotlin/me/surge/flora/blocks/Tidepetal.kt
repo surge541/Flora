@@ -7,7 +7,6 @@ import net.minecraft.entity.effect.StatusEffects
 import net.minecraft.fluid.FluidState
 import net.minecraft.fluid.Fluids
 import net.minecraft.item.ItemPlacementContext
-import net.minecraft.item.ItemStack
 import net.minecraft.server.world.ServerWorld
 import net.minecraft.state.StateManager
 import net.minecraft.state.property.BooleanProperty
@@ -38,7 +37,7 @@ class Tidepetal(settings: Settings) : FlowerBlock(StatusEffects.WATER_BREATHING,
 
     override fun getPlacementState(ctx: ItemPlacementContext): BlockState {
         return this.defaultState
-            .with(WATERLOGGED, ctx.world.getFluidState(ctx.blockPos).isOf(Fluids.WATER));
+            .with(WATERLOGGED, ctx.world.getFluidState(ctx.blockPos).isOf(Fluids.WATER))
     }
 
     override fun getFluidState(state: BlockState): FluidState {
@@ -57,10 +56,10 @@ class Tidepetal(settings: Settings) : FlowerBlock(StatusEffects.WATER_BREATHING,
 
     override fun getStateForNeighborUpdate(state: BlockState, world: WorldView, tickView: ScheduledTickView, pos: BlockPos, direction: Direction, neighborPos: BlockPos, neighborState: BlockState, random: Random): BlockState {
         if (state.get(WATERLOGGED)) {
-            tickView.scheduleFluidTick(pos, Fluids.WATER, Fluids.WATER.getTickRate(world));
+            tickView.scheduleFluidTick(pos, Fluids.WATER, Fluids.WATER.getTickRate(world))
         }
 
-        return super.getStateForNeighborUpdate(state, world, tickView, pos, direction, neighborPos, neighborState, random);
+        return super.getStateForNeighborUpdate(state, world, tickView, pos, direction, neighborPos, neighborState, random)
     }
 
     override fun onBlockAdded(state: BlockState, world: World, pos: BlockPos, oldState: BlockState, notify: Boolean) {

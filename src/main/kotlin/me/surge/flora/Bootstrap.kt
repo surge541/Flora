@@ -5,10 +5,11 @@ import me.surge.flora.items.FloraItems
 import me.surge.flora.worldgen.FloraWorldGen
 import net.fabricmc.api.ModInitializer
 import org.apache.logging.log4j.LogManager
+import org.apache.logging.log4j.Logger
 
 class Bootstrap : ModInitializer {
 
-    val logger = LogManager.getLogger(MOD_ID)
+    private val logger: Logger = LogManager.getLogger(MOD_ID)
 
     override fun onInitialize() {
         FloraBlocks.init()
