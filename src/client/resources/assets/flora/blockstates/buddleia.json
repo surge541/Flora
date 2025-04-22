@@ -1,0 +1,10 @@
+{
+    "variants": {
+        "half=lower": {
+            "model": "flora:block/buddleia_bottom"
+        },
+        "half=upper": {
+            "model": "flora:block/buddleia_top"
+        }
+    }
+}

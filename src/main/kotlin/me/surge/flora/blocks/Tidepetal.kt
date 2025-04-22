@@ -4,8 +4,10 @@ import net.minecraft.block.*
 import net.minecraft.entity.LivingEntity
 import net.minecraft.entity.effect.StatusEffectInstance
 import net.minecraft.entity.effect.StatusEffects
+import net.minecraft.fluid.FluidState
 import net.minecraft.fluid.Fluids
 import net.minecraft.item.ItemPlacementContext
+import net.minecraft.item.ItemStack
 import net.minecraft.server.world.ServerWorld
 import net.minecraft.state.StateManager
 import net.minecraft.state.property.BooleanProperty
@@ -26,7 +28,8 @@ class Tidepetal(settings: Settings) : FlowerBlock(StatusEffects.WATER_BREATHING,
     }
 
     init {
-        defaultState = stateManager.defaultState.with(WATERLOGGED, true)
+        defaultState = defaultState
+            .with(WATERLOGGED, true)
     }
 
     override fun appendProperties(builder: StateManager.Builder<Block, BlockState>) {
@@ -34,49 +37,33 @@ class Tidepetal(settings: Settings) : FlowerBlock(StatusEffects.WATER_BREATHING,
     }
 
     override fun getPlacementState(ctx: ItemPlacementContext): BlockState {
-        val fluidState = ctx.world.getFluidState(ctx.blockPos)
-        val bl = fluidState.fluid === Fluids.WATER
-        return super.getPlacementState(ctx)!!.with<Boolean?, Boolean?>(WATERLOGGED, bl)
+        return this.defaultState
+            .with(WATERLOGGED, ctx.world.getFluidState(ctx.blockPos).isOf(Fluids.WATER));
     }
 
-    override fun canPlantOnTop(floor: BlockState, world: BlockView?, pos: BlockPos?): Boolean {
+    override fun getFluidState(state: BlockState): FluidState {
+        return if (state[WATERLOGGED]) Fluids.WATER.getStill(false) else super.getFluidState(state)
+    }
+
+    override fun canPlantOnTop(floor: BlockState, world: BlockView, pos: BlockPos): Boolean {
         return !floor.getCollisionShape(world, pos).getFace(Direction.UP)
             .isEmpty || floor.isSideSolidFullSquare(world, pos, Direction.UP)
     }
 
-    override fun canPlaceAt(state: BlockState?, world: WorldView, pos: BlockPos): Boolean {
+    override fun canPlaceAt(state: BlockState, world: WorldView, pos: BlockPos): Boolean {
         val blockPos = pos.down()
         return this.canPlantOnTop(world.getBlockState(blockPos), world, blockPos)
     }
 
-    protected override fun getStateForNeighborUpdate(state: BlockState, world: WorldView, tickView: ScheduledTickView, pos: BlockPos, direction: Direction, neighborPos: BlockPos, neighborState: BlockState, random: Random): BlockState {
-        if (!state.canPlaceAt(world, pos)) {
-            return Blocks.AIR.defaultState
-        } else {
-            if (state.get<Boolean?>(SeaPickleBlock.WATERLOGGED)) {
-                tickView.scheduleFluidTick(pos, Fluids.WATER, Fluids.WATER.getTickRate(world))
-            }
-
-            return super.getStateForNeighborUpdate(
-                state,
-                world,
-                tickView,
-                pos,
-                direction,
-                neighborPos,
-                neighborState,
-                random
-            )
+    override fun getStateForNeighborUpdate(state: BlockState, world: WorldView, tickView: ScheduledTickView, pos: BlockPos, direction: Direction, neighborPos: BlockPos, neighborState: BlockState, random: Random): BlockState {
+        if (state.get(WATERLOGGED)) {
+            tickView.scheduleFluidTick(pos, Fluids.WATER, Fluids.WATER.getTickRate(world));
         }
+
+        return super.getStateForNeighborUpdate(state, world, tickView, pos, direction, neighborPos, neighborState, random);
     }
 
-    override fun onBlockAdded(
-        state: BlockState,
-        world: World,
-        pos: BlockPos,
-        oldState: BlockState,
-        notify: Boolean
-    ) {
+    override fun onBlockAdded(state: BlockState, world: World, pos: BlockPos, oldState: BlockState, notify: Boolean) {
         super.onBlockAdded(state, world, pos, oldState, notify)
         world.scheduleBlockTick(pos, this, 1)
     }
@@ -87,7 +74,7 @@ class Tidepetal(settings: Settings) : FlowerBlock(StatusEffects.WATER_BREATHING,
         val box = Box(pos).expand(5.0)
 
         for (entity in world.getOtherEntities(null, box)) {
-            if (!entity.isInFluid || entity !is LivingEntity || entity.statusEffects.any { it.effectType == StatusEffects.WATER_BREATHING && it.isDurationBelow(200)}) {
+            if (entity !is LivingEntity || entity.statusEffects.any { it.effectType == StatusEffects.WATER_BREATHING && !it.isDurationBelow(200)}) {
                 continue
             }
 

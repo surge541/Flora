@@ -14,25 +14,31 @@ import net.minecraft.world.gen.feature.PlacedFeature
 object FloraWorldGen {
 
     val FLORA_FLOWER_FOREST: RegistryKey<PlacedFeature?>? =
-        RegistryKey.of<PlacedFeature?>(RegistryKeys.PLACED_FEATURE, Identifier.of(Bootstrap.MOD_ID, "flora_flower_forest"))
+        RegistryKey.of(RegistryKeys.PLACED_FEATURE, Identifier.of(Bootstrap.MOD_ID, "flora_flower_forest"))
 
     val FLORA_FLOWER_MEADOW: RegistryKey<PlacedFeature?>? =
-        RegistryKey.of<PlacedFeature?>(RegistryKeys.PLACED_FEATURE, Identifier.of(Bootstrap.MOD_ID, "flora_flower_meadow"))
+        RegistryKey.of(RegistryKeys.PLACED_FEATURE, Identifier.of(Bootstrap.MOD_ID, "flora_flower_meadow"))
 
     val DARK_OAK_BLUEBELL_PATCH: RegistryKey<PlacedFeature?>? =
-        RegistryKey.of<PlacedFeature?>(RegistryKeys.PLACED_FEATURE, Identifier.of(Bootstrap.MOD_ID, "dark_oak_bluebell_patch"))
+        RegistryKey.of(RegistryKeys.PLACED_FEATURE, Identifier.of(Bootstrap.MOD_ID, "dark_oak_bluebell_patch"))
 
     val SNOWY_TAIGA_MOONSHADE_LILY_PATCH: RegistryKey<PlacedFeature?>? =
-        RegistryKey.of<PlacedFeature?>(RegistryKeys.PLACED_FEATURE, Identifier.of(Bootstrap.MOD_ID, "snowy_taiga_moonshade_lily_patch"))
+        RegistryKey.of(RegistryKeys.PLACED_FEATURE, Identifier.of(Bootstrap.MOD_ID, "snowy_taiga_moonshade_lily_patch"))
 
     val SNOWDROPS_NEAR_WATER: RegistryKey<PlacedFeature?>? =
-        RegistryKey.of<PlacedFeature?>(RegistryKeys.PLACED_FEATURE, Identifier.of(Bootstrap.MOD_ID, "snowdrops_near_water"))
+        RegistryKey.of(RegistryKeys.PLACED_FEATURE, Identifier.of(Bootstrap.MOD_ID, "snowdrops_near_water"))
 
     val FOREST_FMN_PATCH: RegistryKey<PlacedFeature?>? =
-        RegistryKey.of<PlacedFeature?>(RegistryKeys.PLACED_FEATURE, Identifier.of(Bootstrap.MOD_ID, "forest_fmn_patch"))
+        RegistryKey.of(RegistryKeys.PLACED_FEATURE, Identifier.of(Bootstrap.MOD_ID, "forest_fmn_patch"))
 
     val TIDEPETAL: RegistryKey<PlacedFeature?>? =
-        RegistryKey.of<PlacedFeature?>(RegistryKeys.PLACED_FEATURE, Identifier.of(Bootstrap.MOD_ID, "tidepetal"))
+        RegistryKey.of(RegistryKeys.PLACED_FEATURE, Identifier.of(Bootstrap.MOD_ID, "tidepetal"))
+
+    val FOXBLOOM: RegistryKey<PlacedFeature?>? =
+        RegistryKey.of(RegistryKeys.PLACED_FEATURE, Identifier.of(Bootstrap.MOD_ID, "foxbloom"))
+
+    val BUDDLEIA: RegistryKey<PlacedFeature?>? =
+        RegistryKey.of(RegistryKeys.PLACED_FEATURE, Identifier.of(Bootstrap.MOD_ID, "buddleia"))
 
     fun init() {
         BiomeModifications.addFeature(
@@ -83,12 +89,26 @@ object FloraWorldGen {
         BiomeModifications.addFeature(
             BiomeSelectors.includeByKey(
                 BiomeKeys.LUKEWARM_OCEAN,
-                BiomeKeys.WARM_OCEAN,
-                BiomeKeys.OCEAN,
-                BiomeKeys.DEEP_OCEAN
+                BiomeKeys.WARM_OCEAN
             ),
             GenerationStep.Feature.VEGETAL_DECORATION,
             TIDEPETAL
+        )
+
+        BiomeModifications.addFeature(
+            BiomeSelectors.includeByKey(
+                BiomeKeys.TAIGA,
+                BiomeKeys.OLD_GROWTH_PINE_TAIGA,
+                BiomeKeys.OLD_GROWTH_SPRUCE_TAIGA
+            ),
+            GenerationStep.Feature.VEGETAL_DECORATION,
+            FOXBLOOM
+        )
+
+        BiomeModifications.addFeature(
+            BiomeSelectors.includeByKey(BiomeKeys.LUSH_CAVES),
+            GenerationStep.Feature.VEGETAL_DECORATION,
+            BUDDLEIA
         )
     }
 

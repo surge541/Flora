@@ -16,13 +16,13 @@ import net.minecraft.util.Identifier
 object FloraItems {
 
     val FLORA_GROUP_KEY: RegistryKey<ItemGroup?>? =
-        RegistryKey.of<ItemGroup?>(RegistryKeys.ITEM_GROUP, Identifier.of(Bootstrap.MOD_ID, "flora_group"))
+        RegistryKey.of(RegistryKeys.ITEM_GROUP, Identifier.of(Bootstrap.MOD_ID, "flora_group"))
 
     lateinit var GROUP: ItemGroup
 
     fun init() {
         GROUP = FabricItemGroup.builder()
-            .icon { ItemStack(FloraBlocks.BLUEBELL) }
+            .icon { ItemStack(FloraBlocks.MOONSHADE_LILY) }
             .displayName(Text.translatable("itemGroup.flora"))
             .entries { context, entries ->
                 entries.add(FloraBlocks.BLUEBELL)
@@ -30,6 +30,8 @@ object FloraItems {
                 entries.add(FloraBlocks.SNOWDROP)
                 entries.add(FloraBlocks.FORGET_ME_NOT)
                 entries.add(FloraBlocks.TIDEPETAL)
+                entries.add(FloraBlocks.FOXBLOOM)
+                entries.add(FloraBlocks.BUDDLEIA)
             }
             .build()
 
