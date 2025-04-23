@@ -6,7 +6,7 @@
     "description": "Adds various flowers and plants to Minecraft in a fairly Vanilla-friendly style\n\nfor lissie :)",
     "authors": ["surge"],
     "contact": {},
-    "license": "GPL-3.0",
+    "license": "GPL-3",
     "icon": "assets/flora/textures/block/moonshade_lily.png",
     "environment": "*",
     "entrypoints": {
@@ -30,7 +30,7 @@
     "depends": {
         "fabricloader": ">=${loader_version}",
         "fabric-language-kotlin": ">=${kotlin_loader_version}",
-        "fabric": "*",
+        "fabric-api": ">=${fabric_version}",
         "minecraft": "${minecraft_version}"
     }
 }

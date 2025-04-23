@@ -1,28 +1,13 @@
 # Flora
-Simple mod that adds floral improvements to Minecraft.
+<b>Flora is a small-ish mod that adds a variety of flowers and bushes to Minecraft,
+to diversify the vegetation amongst the world!</b>
 
+## Requirements
+- Fabric API version: `0.120.0` or above
 
-## Feature List
+## Contributing
+Contributions are welcome! Feel free to open issues or submit pull requests on the GitHub
+repo.
 
-### Flowers
-All flowers create dye when put in a crafting table
-
-#### Bluebells
-Found in flower forests, meadows, and dark oak forests.
-
-#### Moonshade Lilies
-Found in Snowy Taiga's, and softly glow forever.
-
-#### Snowdrops
-Found in all snowy/frozen biomes, next to water and ice, and <br />
-turns nearby water into ice.
-
-#### Forget-Me-Nots
-Found in forests, flower forests, and meadows.
-
-#### Tidepetal
-Found in warm and lukewarm oceans, grants water breathing <br />
-to nearby entities.
-
-#### Foxbloom
-Found in taigas.
+## License
+This mod is licensed under the [GPL-3](LICENSE.txt).
