@@ -11,7 +11,7 @@
     "environment": "*",
     "entrypoints": {
         "fabric-datagen": [
-            "me.surge.flora.client.BootstrapDataGenerator"
+          "me.surge.flora.datagen.BootstrapDataGenerator"
         ],
         "client": [
             "me.surge.flora.client.BootstrapClient"

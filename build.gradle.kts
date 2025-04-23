@@ -56,6 +56,7 @@ dependencies {
 }
 
 tasks.processResources {
+    duplicatesStrategy = DuplicatesStrategy.INCLUDE
     inputs.property("version", project.version)
     inputs.property("minecraft_version", project.property("minecraft_version"))
     inputs.property("loader_version", project.property("loader_version"))
