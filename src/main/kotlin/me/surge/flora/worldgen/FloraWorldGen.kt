@@ -1,44 +1,34 @@
 package me.surge.flora.worldgen
 
 import me.surge.flora.Bootstrap
+import me.surge.flora.misc.id
 import net.fabricmc.fabric.api.biome.v1.BiomeModifications
 import net.fabricmc.fabric.api.biome.v1.BiomeSelectors
+import net.minecraft.block.SaplingGenerator
 import net.minecraft.registry.RegistryKey
 import net.minecraft.registry.RegistryKeys
 import net.minecraft.util.Identifier
 import net.minecraft.world.biome.BiomeKeys
 import net.minecraft.world.gen.GenerationStep
-import net.minecraft.world.gen.feature.PlacedFeature
+import java.util.*
 
 
 object FloraWorldGen {
 
-    private val FLORA_FLOWER_FOREST: RegistryKey<PlacedFeature?>? =
-        RegistryKey.of(RegistryKeys.PLACED_FEATURE, Identifier.of(Bootstrap.MOD_ID, "flora_flower_forest"))
+    private val FLORA_FLOWER_FOREST = RegistryKey.of(RegistryKeys.PLACED_FEATURE, Identifier.of(Bootstrap.MOD_ID, "flora_flower_forest"))
+    private val FLORA_FLOWER_MEADOW = RegistryKey.of(RegistryKeys.PLACED_FEATURE, Identifier.of(Bootstrap.MOD_ID, "flora_flower_meadow"))
+    private val DARK_OAK_BLUEBELL_PATCH = RegistryKey.of(RegistryKeys.PLACED_FEATURE, Identifier.of(Bootstrap.MOD_ID, "dark_oak_bluebell_patch"))
+    private val SNOWY_TAIGA_MOONSHADE_LILY_PATCH = RegistryKey.of(RegistryKeys.PLACED_FEATURE, Identifier.of(Bootstrap.MOD_ID, "snowy_taiga_moonshade_lily_patch"))
+    private val SNOWDROPS_NEAR_WATER = RegistryKey.of(RegistryKeys.PLACED_FEATURE, Identifier.of(Bootstrap.MOD_ID, "snowdrops_near_water"))
+    private val FOREST_FMN_PATCH = RegistryKey.of(RegistryKeys.PLACED_FEATURE, Identifier.of(Bootstrap.MOD_ID, "forest_fmn_patch"))
+    private val TIDEPETAL = RegistryKey.of(RegistryKeys.PLACED_FEATURE, Identifier.of(Bootstrap.MOD_ID, "tidepetal"))
+    private val FOXBLOOM = RegistryKey.of(RegistryKeys.PLACED_FEATURE, Identifier.of(Bootstrap.MOD_ID, "foxbloom"))
+    private val BUDDLEIA = RegistryKey.of(RegistryKeys.PLACED_FEATURE, Identifier.of(Bootstrap.MOD_ID, "buddleia"))
 
-    private val FLORA_FLOWER_MEADOW: RegistryKey<PlacedFeature?>? =
-        RegistryKey.of(RegistryKeys.PLACED_FEATURE, Identifier.of(Bootstrap.MOD_ID, "flora_flower_meadow"))
+    private val WISTERIA = RegistryKey.of(RegistryKeys.PLACED_FEATURE, Identifier.of(Bootstrap.MOD_ID, "wisteria"))
+    private val WISTERIA_CF = RegistryKey.of(RegistryKeys.CONFIGURED_FEATURE, id("wisteria"))
 
-    private val DARK_OAK_BLUEBELL_PATCH: RegistryKey<PlacedFeature?>? =
-        RegistryKey.of(RegistryKeys.PLACED_FEATURE, Identifier.of(Bootstrap.MOD_ID, "dark_oak_bluebell_patch"))
-
-    private val SNOWY_TAIGA_MOONSHADE_LILY_PATCH: RegistryKey<PlacedFeature?>? =
-        RegistryKey.of(RegistryKeys.PLACED_FEATURE, Identifier.of(Bootstrap.MOD_ID, "snowy_taiga_moonshade_lily_patch"))
-
-    private val SNOWDROPS_NEAR_WATER: RegistryKey<PlacedFeature?>? =
-        RegistryKey.of(RegistryKeys.PLACED_FEATURE, Identifier.of(Bootstrap.MOD_ID, "snowdrops_near_water"))
-
-    private val FOREST_FMN_PATCH: RegistryKey<PlacedFeature?>? =
-        RegistryKey.of(RegistryKeys.PLACED_FEATURE, Identifier.of(Bootstrap.MOD_ID, "forest_fmn_patch"))
-
-    private val TIDEPETAL: RegistryKey<PlacedFeature?>? =
-        RegistryKey.of(RegistryKeys.PLACED_FEATURE, Identifier.of(Bootstrap.MOD_ID, "tidepetal"))
-
-    private val FOXBLOOM: RegistryKey<PlacedFeature?>? =
-        RegistryKey.of(RegistryKeys.PLACED_FEATURE, Identifier.of(Bootstrap.MOD_ID, "foxbloom"))
-
-    private val BUDDLEIA: RegistryKey<PlacedFeature?>? =
-        RegistryKey.of(RegistryKeys.PLACED_FEATURE, Identifier.of(Bootstrap.MOD_ID, "buddleia"))
+    val WISTERIA_SAPLING_GENERATOR = SaplingGenerator("wisteria", Optional.empty(), Optional.of(WISTERIA_CF), Optional.empty())
 
     fun init() {
         BiomeModifications.addFeature(
@@ -109,6 +99,12 @@ object FloraWorldGen {
             BiomeSelectors.includeByKey(BiomeKeys.LUSH_CAVES),
             GenerationStep.Feature.VEGETAL_DECORATION,
             BUDDLEIA
+        )
+
+        BiomeModifications.addFeature(
+            BiomeSelectors.includeByKey(BiomeKeys.RIVER),
+            GenerationStep.Feature.VEGETAL_DECORATION,
+            WISTERIA
         )
     }
 

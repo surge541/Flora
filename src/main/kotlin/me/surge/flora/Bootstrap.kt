@@ -1,5 +1,6 @@
 package me.surge.flora
 
+import me.surge.flora.blocks.FloraBlockEntities
 import me.surge.flora.blocks.FloraBlocks
 import me.surge.flora.items.FloraItems
 import me.surge.flora.worldgen.FloraWorldGen
@@ -13,6 +14,7 @@ class Bootstrap : ModInitializer {
 
     override fun onInitialize() {
         FloraBlocks.init()
+        FloraBlockEntities.init()
         FloraWorldGen.init()
         FloraItems.init()
 

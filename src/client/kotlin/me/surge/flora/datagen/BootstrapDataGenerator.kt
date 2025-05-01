@@ -5,9 +5,12 @@ import net.fabricmc.fabric.api.datagen.v1.DataGeneratorEntrypoint
 import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricBlockLootTableProvider
+import net.fabricmc.fabric.api.datagen.v1.provider.FabricRecipeProvider
 import net.minecraft.block.FlowerBlock
 import net.minecraft.block.TallFlowerBlock
 import net.minecraft.block.TallPlantBlock
+import net.minecraft.data.recipe.RecipeExporter
+import net.minecraft.data.recipe.RecipeGenerator
 import net.minecraft.loot.LootPool
 import net.minecraft.loot.LootTable
 import net.minecraft.loot.condition.BlockStatePropertyLootCondition
@@ -27,10 +30,8 @@ class BootstrapDataGenerator : DataGeneratorEntrypoint {
     private class BlockLootTableProvider(dataOutput: FabricDataOutput, registryLookup: CompletableFuture<RegistryWrapper.WrapperLookup>) : FabricBlockLootTableProvider(dataOutput, registryLookup) {
 
         override fun generate() {
-            for (block in FloraBlocks.flowers) {
-                if (block is FlowerBlock) {
-                    addDrop(block)
-                } else if (block is TallFlowerBlock) {
+            for (block in FloraBlocks.blocks) {
+                if (block is TallFlowerBlock) {
                     addDrop(block, LootTable.builder()
                         .pool(addSurvivesExplosionCondition(
                             FloraBlocks.BUDDLEIA,
@@ -43,10 +44,13 @@ class BootstrapDataGenerator : DataGeneratorEntrypoint {
                                 ))
                         ))
                     )
+                } else {
+                    addDrop(block)
                 }
             }
         }
 
     }
+
 
 }

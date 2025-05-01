@@ -1,13 +1,11 @@
 package me.surge.flora.blocks
 
-import me.surge.flora.Bootstrap
+import me.surge.flora.misc.Cutout
+import me.surge.flora.misc.id
+import me.surge.flora.worldgen.FloraWorldGen
+import net.minecraft.block.*
 import net.minecraft.block.AbstractBlock.OffsetType
 import net.minecraft.block.AbstractBlock.Settings
-import net.minecraft.block.Block
-import net.minecraft.block.Blocks
-import net.minecraft.block.FlowerBlock
-import net.minecraft.block.MapColor
-import net.minecraft.block.TallFlowerBlock
 import net.minecraft.block.piston.PistonBehavior
 import net.minecraft.entity.effect.StatusEffect
 import net.minecraft.entity.effect.StatusEffects
@@ -16,7 +14,6 @@ import net.minecraft.registry.RegistryKey
 import net.minecraft.registry.RegistryKeys
 import net.minecraft.registry.entry.RegistryEntry
 import net.minecraft.sound.BlockSoundGroup
-import net.minecraft.util.Identifier
 
 object FloraBlocks {
 
@@ -28,7 +25,12 @@ object FloraBlocks {
     lateinit var FOXBLOOM: Block
     lateinit var BUDDLEIA: Block
 
-    val flowers = mutableListOf<Block>()
+    lateinit var WISTERIA_LEAVES: Block
+    lateinit var WISTERIA_FLOWERS: Block
+    lateinit var WISTERIA_FLOWERS_PLANT: Block
+    lateinit var WISTERIA_SAPLING: Block
+
+    val blocks = mutableListOf<Block>()
 
     private val defaultSettings: Settings
         get() = Settings.create()
@@ -84,6 +86,40 @@ object FloraBlocks {
             ::TallFlowerBlock,
             defaultSettings.mapColor(MapColor.PALE_PURPLE)
         )
+
+        WISTERIA_FLOWERS = register(
+            "wisteria_flowers",
+            { WisteriaFlowers(it) },
+            defaultSettings
+                .mapColor(MapColor.PALE_PURPLE)
+                .replaceable()
+                .sounds(BlockSoundGroup.HANGING_ROOTS)
+                .burnable()
+        )
+
+        WISTERIA_FLOWERS_PLANT = register(
+            "wisteria_flowers_plant",
+            { WisteriaFlowersPlant(it) },
+            defaultSettings
+                .mapColor(MapColor.PALE_PURPLE)
+                .replaceable()
+                .sounds(BlockSoundGroup.HANGING_ROOTS)
+                .burnable()
+        )
+
+        WISTERIA_LEAVES = register(
+            "wisteria_leaves",
+            { TintedParticleLeavesBlock(0f, it) },
+            Blocks.createLeavesSettings(BlockSoundGroup.GRASS)
+        )
+
+        WISTERIA_SAPLING = register(
+            "wisteria_sapling",
+            { object : SaplingBlock(FloraWorldGen.WISTERIA_SAPLING_GENERATOR, it), Cutout {} },
+            defaultSettings
+                .mapColor(MapColor.DARK_GREEN)
+                .ticksRandomly()
+        )
     }
 
     private fun flower(effect: RegistryEntry<StatusEffect>, length: Float): (Settings) -> FlowerBlock {
@@ -91,15 +127,12 @@ object FloraBlocks {
     }
 
     private fun register(id: String, factory: (Settings) -> Block, settings: Settings): Block {
-        val identifier = Identifier.of(Bootstrap.MOD_ID, id)
-        val key = RegistryKey.of(RegistryKeys.BLOCK, identifier)
+        val key = RegistryKey.of(RegistryKeys.BLOCK, id(id))
 
         val block = Blocks.register(key, factory, settings)
         Items.register(block)
 
-        if (block is FlowerBlock || block is TallFlowerBlock) {
-            flowers.add(block)
-        }
+        blocks.add(block)
 
         return block
     }
