@@ -25,6 +25,7 @@ object FloraBlocks {
     lateinit var FOXBLOOM: Block
     lateinit var BUDDLEIA: Block
 
+    lateinit var WISTERIA_LOG: Block
     lateinit var WISTERIA_LEAVES: Block
     lateinit var WISTERIA_FLOWERS: Block
     lateinit var WISTERIA_FLOWERS_PLANT: Block
@@ -87,6 +88,16 @@ object FloraBlocks {
             defaultSettings.mapColor(MapColor.PALE_PURPLE)
         )
 
+        WISTERIA_LOG = register(
+            "wisteria_log",
+            ::PillarBlock,
+            Blocks.createLogSettings(
+                MapColor.OAK_TAN,
+                MapColor.SPRUCE_BROWN,
+                BlockSoundGroup.WOOD
+            )
+        )
+
         WISTERIA_FLOWERS = register(
             "wisteria_flowers",
             { WisteriaFlowers(it) },
@@ -94,7 +105,7 @@ object FloraBlocks {
                 .mapColor(MapColor.PALE_PURPLE)
                 .replaceable()
                 .sounds(BlockSoundGroup.HANGING_ROOTS)
-                .burnable()
+                .ticksRandomly()
         )
 
         WISTERIA_FLOWERS_PLANT = register(
@@ -104,7 +115,6 @@ object FloraBlocks {
                 .mapColor(MapColor.PALE_PURPLE)
                 .replaceable()
                 .sounds(BlockSoundGroup.HANGING_ROOTS)
-                .burnable()
         )
 
         WISTERIA_LEAVES = register(

@@ -2,23 +2,7 @@
     "type": "minecraft:tree",
     "config": {
         "decorators": [{
-            "type": "minecraft:attached_to_leaves",
-            "probability": 0.6,
-            "exclusion_radius_xz": 0,
-            "exclusion_radius_y": 0,
-            "required_empty_blocks": 1,
-            "block_provider": {
-                "type": "minecraft:simple_state_provider",
-                "state": {
-                    "Name": "flora:wisteria_flowers",
-                    "Properties": {
-                        "age": 25
-                    }
-                }
-            },
-            "directions": [
-                "down"
-            ]
+            "type": "flora:wisteria"
         }],
         "dirt_provider": {
             "type": "minecraft:simple_state_provider",
@@ -83,7 +67,7 @@
         "trunk_provider": {
             "type": "minecraft:simple_state_provider",
             "state": {
-                "Name": "minecraft:spruce_log",
+                "Name": "flora:wisteria_log",
                 "Properties": {
                     "axis": "y"
                 }

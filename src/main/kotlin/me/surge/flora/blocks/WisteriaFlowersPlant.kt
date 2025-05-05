@@ -10,7 +10,7 @@ class WisteriaFlowersPlant(settings: Settings) : AbstractPlantBlock(settings, Di
 
     companion object {
         val CODEC = createCodec {  WisteriaFlowersPlant(it) }
-        private val SHAPE: VoxelShape = createColumnShape(14.0, 9.0, 16.0)
+        private val SHAPE: VoxelShape = createColumnShape(14.0, 0.0, 16.0)
     }
 
     public override fun getCodec() = CODEC

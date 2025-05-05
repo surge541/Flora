@@ -5,11 +5,14 @@ import me.surge.flora.misc.id
 import net.fabricmc.fabric.api.biome.v1.BiomeModifications
 import net.fabricmc.fabric.api.biome.v1.BiomeSelectors
 import net.minecraft.block.SaplingGenerator
+import net.minecraft.registry.Registries
+import net.minecraft.registry.Registry
 import net.minecraft.registry.RegistryKey
 import net.minecraft.registry.RegistryKeys
 import net.minecraft.util.Identifier
 import net.minecraft.world.biome.BiomeKeys
 import net.minecraft.world.gen.GenerationStep
+import net.minecraft.world.gen.treedecorator.TreeDecoratorType
 import java.util.*
 
 
@@ -29,6 +32,7 @@ object FloraWorldGen {
     private val WISTERIA_CF = RegistryKey.of(RegistryKeys.CONFIGURED_FEATURE, id("wisteria"))
 
     val WISTERIA_SAPLING_GENERATOR = SaplingGenerator("wisteria", Optional.empty(), Optional.of(WISTERIA_CF), Optional.empty())
+    val WISTERIA_TREE_DECORATOR = Registry.register(Registries.TREE_DECORATOR_TYPE, id("wisteria"), TreeDecoratorType(WisteriaTreeDecorator.CODEC))
 
     fun init() {
         BiomeModifications.addFeature(
