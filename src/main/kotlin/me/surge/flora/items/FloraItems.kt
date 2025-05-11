@@ -25,13 +25,9 @@ object FloraItems {
             .icon { ItemStack(FloraBlocks.MOONSHADE_LILY) }
             .displayName(Text.translatable("itemGroup.flora"))
             .entries { context, entries ->
-                entries.add(FloraBlocks.BLUEBELL)
-                entries.add(FloraBlocks.MOONSHADE_LILY)
-                entries.add(FloraBlocks.SNOWDROP)
-                entries.add(FloraBlocks.FORGET_ME_NOT)
-                entries.add(FloraBlocks.TIDEPETAL)
-                entries.add(FloraBlocks.FOXBLOOM)
-                entries.add(FloraBlocks.BUDDLEIA)
+                FloraBlocks.itemGroupBlocks.forEach {
+                    entries.add(it)
+                }
             }
             .build()
 

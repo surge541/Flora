@@ -25,13 +25,13 @@ object FloraBlocks {
     lateinit var FOXBLOOM: Block
     lateinit var BUDDLEIA: Block
 
-    lateinit var WISTERIA_LOG: Block
     lateinit var WISTERIA_LEAVES: Block
     lateinit var WISTERIA_FLOWERS: Block
     lateinit var WISTERIA_FLOWERS_PLANT: Block
     lateinit var WISTERIA_SAPLING: Block
 
     val blocks = mutableListOf<Block>()
+    val itemGroupBlocks = mutableListOf<Block>()
 
     private val defaultSettings: Settings
         get() = Settings.create()
@@ -88,16 +88,6 @@ object FloraBlocks {
             defaultSettings.mapColor(MapColor.PALE_PURPLE)
         )
 
-        WISTERIA_LOG = register(
-            "wisteria_log",
-            ::PillarBlock,
-            Blocks.createLogSettings(
-                MapColor.OAK_TAN,
-                MapColor.SPRUCE_BROWN,
-                BlockSoundGroup.WOOD
-            )
-        )
-
         WISTERIA_FLOWERS = register(
             "wisteria_flowers",
             { WisteriaFlowers(it) },
@@ -114,7 +104,8 @@ object FloraBlocks {
             defaultSettings
                 .mapColor(MapColor.PALE_PURPLE)
                 .replaceable()
-                .sounds(BlockSoundGroup.HANGING_ROOTS)
+                .sounds(BlockSoundGroup.HANGING_ROOTS),
+            true
         )
 
         WISTERIA_LEAVES = register(
@@ -136,13 +127,17 @@ object FloraBlocks {
         return { FlowerBlock(effect, length, it) }
     }
 
-    private fun register(id: String, factory: (Settings) -> Block, settings: Settings): Block {
+    private fun register(id: String, factory: (Settings) -> Block, settings: Settings, ignore_add: Boolean = false): Block {
         val key = RegistryKey.of(RegistryKeys.BLOCK, id(id))
 
         val block = Blocks.register(key, factory, settings)
         Items.register(block)
 
         blocks.add(block)
+
+        if (!ignore_add) {
+            itemGroupBlocks.add(block)
+        }
 
         return block
     }
