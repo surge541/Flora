@@ -83,7 +83,7 @@ class Tidepetal(settings: Settings) : BlockWithEntity(settings), SuspiciousStewI
     override fun canPlaceAt(state: BlockState, world: WorldView, pos: BlockPos): Boolean {
         val floor = pos.down()
         val floorState = world.getBlockState(floor)
-        return floorState.isIn(BlockTags.DIRT) || floorState.isOf(Blocks.FARMLAND)
+        return floorState.isIn(BlockTags.DIRT) || floorState.isOf(Blocks.SAND) || floorState.isOf(Blocks.FARMLAND)
     }
 
     override fun canPathfindThrough(state: BlockState?, type: NavigationType?): Boolean {

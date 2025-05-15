@@ -11,3 +11,18 @@ repo.
 
 ## License
 This mod is licensed under the [GPL-3](LICENSE.txt).
+
+## Features
+### Flowers
+ - Bluebells (found in Dark Forests, Meadows and Flower Forests)
+ - Moonshade Lilies (found in Snowy Taigas)
+ - Snowdrops (found in all Frozen/Snowy biomes, near water)
+ - Forget-me-nots (found in Forests, Meadows and Flower Forests)
+ - Tidepetals (found in lukewarm and warm oceans)
+ - Foxbloom (found in Taigas)
+ - Buddleia (found in Lush Caves)
+
+### Trees
+ - Wisteria (found near rivers)
+
+...and more to come! (maybe)

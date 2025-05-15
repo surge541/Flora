@@ -1,6 +1,6 @@
 {
     "parent": "minecraft:item/generated",
     "textures": {
-        "layer0": "flora:block/wisteria_flowers"
+        "layer0": "flora:block/wisteria_flowers_plant"
     }
 }
