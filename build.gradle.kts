@@ -40,10 +40,6 @@ fabricApi {
 repositories {
     mavenCentral()
     mavenLocal()
-
-    maven("https://maven.terraformersmc.com") {
-        name = "TerraformersMC"
-    }
 }
 
 dependencies {
