@@ -145,7 +145,7 @@ object FloraBlocks {
         return { FlowerBlock(effect, length, it) }
     }
 
-    private fun register(id: String, factory: (Settings) -> Block, settings: Settings, ignore_add: Boolean = false): Block {
+    private fun register(id: String, factory: (Settings) -> Block, settings: Settings, ignoreAdd: Boolean = false): Block {
         val key = RegistryKey.of(RegistryKeys.BLOCK, id(id))
 
         val block = Blocks.register(key, factory, settings)
@@ -153,7 +153,7 @@ object FloraBlocks {
 
         blocks.add(block)
 
-        if (!ignore_add) {
+        if (!ignoreAdd) {
             itemGroupBlocks.add(block)
         }
 
