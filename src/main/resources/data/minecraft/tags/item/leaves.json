@@ -1,6 +1,7 @@
 {
     "replace": false,
     "values": [
-        "flora:wisteria_leaves"
+        "flora:wisteria_leaves",
+        "flora:blooming_wisteria_leaves"
     ]
 }

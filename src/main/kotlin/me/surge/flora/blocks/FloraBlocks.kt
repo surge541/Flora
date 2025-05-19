@@ -26,6 +26,7 @@ object FloraBlocks {
     lateinit var BUDDLEIA: Block
 
     lateinit var WISTERIA_LEAVES: Block
+    lateinit var BLOOMING_WISTERIA_LEAVES: Block
     lateinit var WISTERIA_FLOWERS: Block
     lateinit var WISTERIA_FLOWERS_PLANT: Block
     lateinit var WISTERIA_SAPLING: Block
@@ -110,7 +111,17 @@ object FloraBlocks {
 
         WISTERIA_LEAVES = register(
             "wisteria_leaves",
-            { TintedParticleLeavesBlock(0f, it) },
+            {
+                TintedParticleLeavesBlock(0f, it)
+            },
+            Blocks.createLeavesSettings(BlockSoundGroup.GRASS)
+        )
+
+        BLOOMING_WISTERIA_LEAVES = register(
+            "blooming_wisteria_leaves",
+            {
+                TintedParticleLeavesBlock(0f, it)
+            },
             Blocks.createLeavesSettings(BlockSoundGroup.GRASS)
         )
 

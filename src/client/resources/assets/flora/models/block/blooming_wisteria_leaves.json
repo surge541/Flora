@@ -1,0 +1,6 @@
+{
+    "parent": "minecraft:block/leaves",
+    "textures": {
+        "all": "flora:block/blooming_wisteria_leaves"
+    }
+}
