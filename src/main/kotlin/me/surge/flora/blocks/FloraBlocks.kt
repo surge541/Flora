@@ -23,6 +23,7 @@ object FloraBlocks {
     lateinit var FORGET_ME_NOT: Block
     lateinit var TIDEPETAL: Block
     lateinit var FOXBLOOM: Block
+    lateinit var SHOCK_IRIS: Block
     lateinit var BUDDLEIA: Block
 
     lateinit var WISTERIA_LEAVES: Block
@@ -81,6 +82,12 @@ object FloraBlocks {
             "foxbloom",
             flower(StatusEffects.SATURATION, 5.0F),
             defaultSettings.mapColor(MapColor.ORANGE)
+        )
+
+        SHOCK_IRIS = register(
+            "shock_iris",
+            flower(StatusEffects.WEAKNESS, 5.0F),
+            defaultSettings.mapColor(MapColor.YELLOW)
         )
 
         BUDDLEIA = register(

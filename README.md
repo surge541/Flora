@@ -21,6 +21,7 @@ This mod is licensed under the [GPL-3](LICENSE.txt).
  - Tidepetals (found in lukewarm and warm oceans)
  - Foxbloom (found in Taigas)
  - Buddleia (found in Lush Caves)
+ - Shock Irises (found in Mangrove Swamps and Swamps)
 
 ### Trees
  - Wisteria (found near rivers)

@@ -26,6 +26,7 @@ object FloraWorldGen {
     private val FOREST_FMN_PATCH = RegistryKey.of(RegistryKeys.PLACED_FEATURE, Identifier.of(Bootstrap.MOD_ID, "forest_fmn_patch"))
     private val TIDEPETAL = RegistryKey.of(RegistryKeys.PLACED_FEATURE, Identifier.of(Bootstrap.MOD_ID, "tidepetal"))
     private val FOXBLOOM = RegistryKey.of(RegistryKeys.PLACED_FEATURE, Identifier.of(Bootstrap.MOD_ID, "foxbloom"))
+    private val SHOCK_IRIS = RegistryKey.of(RegistryKeys.PLACED_FEATURE, Identifier.of(Bootstrap.MOD_ID, "shock_iris"))
     private val BUDDLEIA = RegistryKey.of(RegistryKeys.PLACED_FEATURE, Identifier.of(Bootstrap.MOD_ID, "buddleia"))
 
     private val WISTERIA = RegistryKey.of(RegistryKeys.PLACED_FEATURE, Identifier.of(Bootstrap.MOD_ID, "wisteria"))
@@ -97,6 +98,15 @@ object FloraWorldGen {
             ),
             GenerationStep.Feature.VEGETAL_DECORATION,
             FOXBLOOM
+        )
+
+        BiomeModifications.addFeature(
+            BiomeSelectors.includeByKey(
+                BiomeKeys.SWAMP,
+                BiomeKeys.MANGROVE_SWAMP
+            ),
+            GenerationStep.Feature.VEGETAL_DECORATION,
+            SHOCK_IRIS
         )
 
         BiomeModifications.addFeature(

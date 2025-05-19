@@ -1,0 +1,34 @@
+{
+    "type": "minecraft:flower",
+    "config": {
+        "feature": {
+            "feature": {
+                "type": "minecraft:simple_block",
+                "config": {
+                    "to_place": {
+                        "type": "minecraft:simple_state_provider",
+                        "state": {
+                            "Name": "flora:shock_iris"
+                        }
+                    }
+                }
+            },
+            "placement": [
+                {
+                    "type": "minecraft:block_predicate_filter",
+                    "predicate": {
+                        "type": "minecraft:matching_blocks",
+                        "blocks": "minecraft:air"
+                    }
+                },
+                {
+                    "type": "minecraft:rarity_filter",
+                    "chance": 5
+                }
+            ]
+        },
+        "tries": 12,
+        "xz_spread": 2,
+        "y_spread": 2
+    }
+}
